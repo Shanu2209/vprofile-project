@@ -28,7 +28,20 @@
             <url>https://loadshare-891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/lsn-repo/</url>
         </repository>
     </distributionManagement>
-
+    <distributionManagement>
+        <repository>
+            <id>lsn-Jen-Repo</id>
+            <name>lsn-Jen-Repo</name>
+            <url>https://lsn-891365734547.d.codeartifact.us-east-1.amazonaws.com/maven/Jen-Repo/</url>
+        </repository>
+    </distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>lsn-maven-central-store</id>
+            <name>lsn-maven-central-store</name>
+            <url>https://lsn-891365734547.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
