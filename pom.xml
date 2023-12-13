@@ -165,6 +165,14 @@
 		    <version>2.8.2</version>
 		</dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>demo-domain-demo-repository</id>
+            <name>demo-domain-demo-repository</name>
+            <url>https://demo-domain-891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</url>
+        </repository>
+    </distributionManagement>
+
      <build>
         <plugins>
             <plugin>
