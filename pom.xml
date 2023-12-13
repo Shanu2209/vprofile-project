@@ -172,65 +172,61 @@
             <url>https://demo-domain-891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</url>
         </repository>
     </distributionManagement>
-
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.11.v20150529</version>
-                <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
-                </configuration>
-            </plugin>
+     <plugins>
+        <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.2.11.v20150529</version>
+            <configuration>
+                <scanIntervalSeconds>10</scanIntervalSeconds>
+                <webApp>
+                    <contextPath>/</contextPath>
+                </webApp>
+            </configuration>
+        </plugin>
 
-            <!-- CODE COVERAGE -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.2</version>
-		<configuration>
-                    <altDeploymentRepository>codeartifact::default::https://891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</altDeploymentRepository>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>deploy-to-codeartifact</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Configure the deployment repository -->
-                            <altDeploymentRepository>codeartifact::default::https://891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</altDeploymentRepository>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+        <!-- CODE COVERAGE -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>3.1.1</version>
+            <configuration>
+                <altDeploymentRepository>codeartifact::default::https://891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</altDeploymentRepository>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>deploy-to-codeartifact</id>
+                    <phase>deploy</phase>
+                    <goals>
+                        <goal>deploy</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.4</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.4</version>
+            <executions>
+                <execution>
+                    <id>jacoco-initialize</id>
+                    <phase>process-resources</phase>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>jacoco-site</id>
+                    <phase>post-integration-test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+
 </project>
