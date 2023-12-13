@@ -190,6 +190,23 @@
                      <groupId>org.apache.maven.plugins</groupId>
                      <artifactId>maven-war-plugin</artifactId>
                      <version>3.2.2</version>
+		     <configuration>
+                         <skip>true</skip> <!-- Skip the default deploy goal -->
+                     </configuration>
+                     <executions>
+                         <execution>
+                              <id>deploy-to-codeartifact</id>
+                              <phase>deploy</phase>
+                              <goals>
+                                  <goal>deploy</goal>
+                              </goals>
+                              <configuration>
+                                   <!-- Configure the deployment repository -->
+                                   <altDeploymentRepository>codeartifact::default::https://891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</altDeploymentRepository>
+                              </configuration>
+                         </execution>
+                     </executions>
+		     
                     </plugin>
  		    <plugin>
  		        <groupId>org.jacoco</groupId>
