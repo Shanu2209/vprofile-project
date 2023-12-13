@@ -170,7 +170,7 @@
             <id>demo-domain-demo-repository</id>
             <name>demo-domain-demo-repository</name>
             <url>https://demo-domain-891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</url>
-        </repository>
+	</repository>
     </distributionManagement>
     <build>
      <plugins>
@@ -192,7 +192,7 @@
             <artifactId>maven-deploy-plugin</artifactId>
             <version>3.1.1</version>
             <configuration>
-                <altDeploymentRepository>codeartifact::default::https://891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</altDeploymentRepository>
+		<altDeploymentRepository>codeartifact::default::https://demo-domain-891365734547.d.codeartifact.ap-south-1.amazonaws.com/maven/demo-repository/</altDeploymentRepository>
             </configuration>
             <executions>
                 <execution>
