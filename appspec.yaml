@@ -8,13 +8,13 @@ Actions:
       Version: '1'
     RunOrder: 1
     Configuration:
-      ApplicationName: my-application
-      DeploymentGroupName: my-deployment-group
+      ApplicationName: DeployToECS
+      DeploymentGroupName: Deploy-to-ECS
       TaskDefinition: arn:aws:ecs:ap-south-1:891365734547:task-definition/vprofileapptask:1
       ContainerName: vproapp
       ContainerPort: 8080
     OutputArtifacts: []
     InputArtifacts:
-      - Name: SourceArtifact
-    Region: us-west-2
+      - Name: BuildArtifact
+    Region: ap-south-1
     Namespace: DeployVariables
