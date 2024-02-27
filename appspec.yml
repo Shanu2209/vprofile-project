@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "Resources": [
+    {
+      "TargetService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "TaskDefinition": "arn:aws:ecs:ap-south-1:891365734547:task-definition/vprofileapptask:1",
+          "LoadBalancerInfo": {
+            "ContainerName": "vproapp",
+            "ContainerPort": 8080
+          },
+          "PlatformVersion": "1.4.0"
+        }
+      }
+    }
+  ],
+  "Hooks": []
+}
