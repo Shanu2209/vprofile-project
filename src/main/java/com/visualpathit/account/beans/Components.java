@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Components {
 	
-	@Value("${memcached.active.host}")
+	@Value("${memcached.active.host}") 
     private String activeHost;
 	@Value("${memcached.active.port}")
     private String activePort;
